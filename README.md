@@ -12,8 +12,8 @@ A simple and efficient URL-shortening service built with Node.js and MongoDB. Th
 ## Technologies Used
 
 - **Backend**: Node.js, Express.js
+- **Dependencies**: shortid 
 - **Database**: MongoDB
-- **Dependencies**: Refer to `package.json` for the full list of dependencies.
 
 ## Installation
 
@@ -26,31 +26,28 @@ Ensure you have the following installed on your system:
 
 ### Steps
 
-1. **Clone the repository:**
+1. **Download the Zip**
+   
+2. **Create a `package.json` file:**
+   Run the following command and follow the prompts to set up your `package.json` file:
    ```bash
-   git clone https://github.com/your-username/short-url.git
-   cd short-url
+   npm init -y
    ```
 
-2. **Install dependencies:**
+3. **Install dependencies:**
+   Install the required packages using the following commands:
    ```bash
-   npm install
+   npm install express mongoose shortid
    ```
 
-3. **Set up environment variables:**
-   Create a `.env` file in the root directory and add the following:
-   ```env
-   PORT=3000
-   MONGO_URI=mongodb://localhost:27017/shorturl
-   BASE_URL=http://localhost:3000
-   ```
 
-4. **Start the application:**
+4. **Run the application:**
+   Start the server with the following command:
    ```bash
-   npm start
+   node index.js
    ```
 
-   The service will be available at `http://localhost:3000`.
+   The service will be available at `http://localhost:8000`.
 
 ## API Endpoints
 
@@ -62,7 +59,7 @@ Ensure you have the following installed on your system:
 - **Request Body**:
   ```json
   {
-    "longUrl": "https://example.com"
+    "url": "https://example.com"
   }
   ```
 - **Response**:
@@ -73,39 +70,3 @@ Ensure you have the following installed on your system:
   }
   ```
 
-### 2. Redirect to Original URL
-
-**GET** `/:code`
-
-- **Description**: Redirects the user from a short URL to its corresponding long URL.
-- **Response**: HTTP redirect to the original URL.
-
-## Folder Structure
-
-```
-short-url/
-├── node_modules/         # Project dependencies
-├── public/               # Static files (if any)
-├── routes/               # API route handlers
-├── models/               # Database models (e.g., URL schema)
-├── .env                  # Environment variables (not included in Git)
-├── package.json          # Project metadata and scripts
-├── server.js             # Application entry point
-└── README.md             # Project documentation
-```
-
-## Contributing
-
-1. Fork the repository.
-2. Create a feature branch.
-3. Commit your changes.
-4. Push to the branch and create a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
-## Acknowledgments
-
-- Inspiration for the project from various URL-shortening services.
-- Community contributions and feedback.
